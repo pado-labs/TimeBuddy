@@ -13,3 +13,4 @@ This document records every significant action performed by Oz (the agent) on th
 - [Auth] Configure git credential helper via `gh auth setup-git` for HTTPS pushes.
 - [Repo] Push 'main' branch to origin (pado-labs/TimeBuddy).
 - [CI] Trigger GitHub Pages deploy workflow via push (deploy-web.yml).
+- [Release] Create and push tag v1.0.0 to trigger release workflow.
