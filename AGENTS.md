@@ -27,3 +27,4 @@ This document records every significant action performed by Oz (the agent) on th
 - [Release] Update workflow to also package `.pkg` installer (pkgbuild) and upload alongside zip.
 - [Docs] README: add website URL and install notes (PKG/ZIP).
 - [Docs] README: add Gatekeeper workaround (System Settings → Privacy & Security → Open Anyway).
+- [App] Timezone picker: show stable abbreviations (KST/PST/EST) instead of raw GMT offsets.
