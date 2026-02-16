@@ -9,3 +9,4 @@ This document records every significant action performed by Oz (the agent) on th
 - [Init] Create AGENTS.md and enable action-by-action commits.
 
 <!-- LOG: entries will be appended below this line -->
+- [Auth] Switch GitHub CLI login to 'woohyeokk-choi' via web flow (HTTPS git protocol; scopes: repo, workflow).
