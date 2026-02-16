@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		325D8D4CC2BF2D6733D647D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8CC7D6C4D02DDEAB7B83A81 /* Assets.xcassets */; };
 		456B809226F6543D0E2EF54B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4375B8D69AC7B980720A4D /* SettingsView.swift */; };
 		52F5C4383309215B83965175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B803837BA63235D13C9E0 /* AppDelegate.swift */; };
 		7F881B2E05B14B5A47CD319D /* TimeZoneResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF4233C58FDF0B2622510A /* TimeZoneResult.swift */; };
@@ -27,12 +28,14 @@
 		CB4375B8D69AC7B980720A4D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D921A2892BE05C45E4ABED97 /* TimeBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DBBA0767B7DC64D963D7EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F8CC7D6C4D02DDEAB7B83A81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		1C28A642886289A6AEF82CCB = {
 			isa = PBXGroup;
 			children = (
+				4CCE21E185986BF02B24C047 /* Resources */,
 				C20105580E13854198D4D74A /* TimeBuddy */,
 				EEDD13446554FB35E6AD30BA /* Products */,
 			);
@@ -44,6 +47,15 @@
 				4DCF4233C58FDF0B2622510A /* TimeZoneResult.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4CCE21E185986BF02B24C047 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F8CC7D6C4D02DDEAB7B83A81 /* Assets.xcassets */,
+			);
+			name = Resources;
+			path = TimeBuddy/Resources;
 			sourceTree = "<group>";
 		};
 		4D990209FC7384360AF5D83F /* ViewModels */ = {
@@ -109,6 +121,7 @@
 			buildConfigurationList = 9683542FCC9FADD6596183C3 /* Build configuration list for PBXNativeTarget "TimeBuddy" */;
 			buildPhases = (
 				9FB4BA9E0DFF98BE1A046184 /* Sources */,
+				E393C50F436AAAC9E29C7148 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +161,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E393C50F436AAAC9E29C7148 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				325D8D4CC2BF2D6733D647D0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9FB4BA9E0DFF98BE1A046184 /* Sources */ = {

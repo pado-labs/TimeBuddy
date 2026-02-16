@@ -29,3 +29,4 @@ This document records every significant action performed by Oz (the agent) on th
 - [Docs] README: add Gatekeeper workaround (System Settings → Privacy & Security → Open Anyway).
 - [App] Timezone picker: show stable abbreviations (KST/PST/EST) instead of raw GMT offsets.
 - [Release] Create and push tag v1.0.1 to trigger release workflow.
+- [Icons] Fix Xcode project: add Resources phase via XcodeGen and set AppIcon name; rebuild Release.
