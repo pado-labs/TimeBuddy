@@ -16,3 +16,4 @@ This document records every significant action performed by Oz (the agent) on th
 - [Release] Create and push tag v1.0.0 to trigger release workflow.
 - [Pages] Enable GitHub Pages with build_type=workflow and HTTPS enforced.
 - [Pages] Manually dispatched Deploy Website workflow on main.
+- [Web] Remove features row (emoji bullets) and redesign demo to match app UI (toolbar + rows + copy icons).
