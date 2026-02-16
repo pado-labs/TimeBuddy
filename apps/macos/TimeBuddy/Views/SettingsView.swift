@@ -28,6 +28,14 @@ struct SettingsView: View {
 
             Divider()
 
+            // Launch at login
+            Toggle(isOn: $viewModel.launchAtLogin) {
+                Text("Launch at login")
+            }
+            .toggleStyle(.switch)
+
+            Divider()
+
             // Pinned Timezones
             VStack(alignment: .leading, spacing: 8) {
                 HStack {

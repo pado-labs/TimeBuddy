@@ -21,3 +21,5 @@ This document records every significant action performed by Oz (the agent) on th
 - [Icons] Add script to generate minimalist clock app icon and update AppIcon.appiconset with filenames.
 - [Web] Add demo screenshot at `apps/web/public/demo.png` and auto-hide mock on load.
 - [CI] Deploy Website workflow triggered via push (web public asset).
+- [App] Add "Launch at login" setting (writes LaunchAgent in ~/Library/LaunchAgents) and toggle in Settings.
+- [Web] Footer: append pado-labs icon (public/pado-icon.svg).

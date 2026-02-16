@@ -29,6 +29,38 @@ final class TimeConverterViewModel: ObservableObject {
 
     private let anthropicService = AnthropicService()
 
+    // Launch at login
+    @AppStorage("launchAtLogin") var launchAtLogin: Bool = false {
+        didSet { applyLaunchAtLogin(launchAtLogin) }
+    }
+
+    private static var launchAgentURL: URL {
+        let home = FileManager.default.homeDirectoryForCurrentUser
+        return home.appendingPathComponent("Library/LaunchAgents/com.padolabs.TimeBuddy.plist")
+    }
+
+    private func applyLaunchAtLogin(_ enabled: Bool) {
+        let url = Self.launchAgentURL
+        if enabled {
+            let dict: [String: Any] = [
+                "Label": "com.padolabs.TimeBuddy",
+                "RunAtLoad": true,
+                "KeepAlive": false,
+                "LimitLoadToSessionType": "Aqua",
+                "ProgramArguments": ["/usr/bin/open", "-a", Bundle.main.bundlePath],
+            ]
+            do {
+                let data = try PropertyListSerialization.data(fromPropertyList: dict, format: .xml, options: 0)
+                try FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+                try data.write(to: url, options: .atomic)
+            } catch {
+                print("Failed to write LaunchAgent: \(error)")
+            }
+        } else {
+            try? FileManager.default.removeItem(at: url)
+        }
+    }
+
     var timeZoneIdentifiers: [String] {
         get {
             (try? JSONDecoder().decode([String].self, from: pinnedTimeZonesData)) ?? []
