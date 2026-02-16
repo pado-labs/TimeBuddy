@@ -1,0 +1,69 @@
+name: Release macOS App
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        working-directory: apps/macos
+        run: xcodegen generate
+
+      - name: Build app
+        working-directory: apps/macos
+        run: |
+          xcodebuild \
+            -project TimeBuddy.xcodeproj \
+            -scheme TimeBuddy \
+            -configuration Release \
+            -derivedDataPath build \
+            -arch arm64 -arch x86_64 \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Package app
+        working-directory: apps/macos
+        run: |
+          APP_PATH="build/Build/Products/Release/TimeBuddy.app"
+          VERSION="${GITHUB_REF_NAME#v}"
+          ZIP_NAME="TimeBuddy-${VERSION}-macOS.zip"
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" "$ZIP_NAME"
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: TimeBuddy v${{ env.VERSION }}
+          body: |
+            ## TimeBuddy v${{ env.VERSION }}
+
+            ### Download
+            Download `${{ env.ZIP_NAME }}`, unzip, and drag **TimeBuddy.app** to your Applications folder.
+
+            ### Requirements
+            - macOS 14.0 (Sonoma) or later
+          files: apps/macos/${{ env.ZIP_NAME }}
+          draft: false
+          prerelease: false
