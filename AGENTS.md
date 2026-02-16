@@ -23,3 +23,4 @@ This document records every significant action performed by Oz (the agent) on th
 - [CI] Deploy Website workflow triggered via push (web public asset).
 - [App] Add "Launch at login" setting (writes LaunchAgent in ~/Library/LaunchAgents) and toggle in Settings.
 - [Web] Footer: append pado-labs icon (public/pado-icon.svg).
+- [Run] Local build (Debug) and launch via xcodebuild/open for verification.
