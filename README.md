@@ -13,6 +13,15 @@ Download the latest release from [GitHub Releases](https://github.com/pado-labs/
 
 **Requirements:** macOS 14.0 (Sonoma) or later
 
+## If macOS blocks the app (Gatekeeper)
+If you see a message like "TimeBuddy" cannot be opened:
+
+- Go to System Settings → Privacy & Security.
+- Find the message that says TimeBuddy was blocked from use.
+- Click Open Anyway, then confirm Open.
+
+(Optional) You can also right‑click TimeBuddy.app → Open to run it once.
+
 ## Project Structure
 
 ```
