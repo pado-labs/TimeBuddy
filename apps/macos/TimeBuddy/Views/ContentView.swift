@@ -20,7 +20,7 @@ struct ContentView: View {
                             viewModel.defaultInputTimezone = identifier
                         }) {
                             HStack {
-                                Text(TimeZone(identifier: identifier)?.abbreviation() ?? identifier)
+Text(TimeConverterViewModel.shortAbbreviation(for: identifier))
                                 if identifier == viewModel.defaultInputTimezone {
                                     Image(systemName: "checkmark")
                                 }
@@ -28,7 +28,7 @@ struct ContentView: View {
                         }
                     }
                 } label: {
-                    Text(TimeZone(identifier: viewModel.defaultInputTimezone)?.abbreviation() ?? "KST")
+Text(TimeConverterViewModel.shortAbbreviation(for: viewModel.defaultInputTimezone))
                         .font(.system(size: 11, weight: .medium))
                         .padding(.horizontal, 6)
                         .padding(.vertical, 3)

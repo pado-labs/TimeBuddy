@@ -124,6 +124,30 @@ final class TimeConverterViewModel: ObservableObject {
             .replacingOccurrences(of: "_", with: " ") ?? identifier
     }
 
+    // Prefer stable, human-friendly abbreviations. Avoid raw "GMT±X" where possible.
+    static let preferredAbbreviations: [String: String] = [
+        "Asia/Seoul": "KST",
+        "America/Los_Angeles": "PST",
+        "America/New_York": "EST",
+        "Europe/London": "GMT",
+        "Europe/Paris": "GMT+1", // simple display aligned with mock
+        "Asia/Dubai": "GMT+4",
+        "America/Toronto": "EST",
+    ]
+
+    static func shortAbbreviation(for identifier: String, date: Date = Date()) -> String {
+        if let abbr = preferredAbbreviations[identifier] { return abbr }
+        guard let tz = TimeZone(identifier: identifier) else { return identifier }
+        if let abbr = tz.abbreviation(for: date), !abbr.uppercased().hasPrefix("GMT") {
+            return abbr
+        }
+        let seconds = tz.secondsFromGMT(for: date)
+        let hours = seconds / 3600
+        let minutes = abs((seconds / 60) % 60)
+        if minutes == 0 { return String(format: "GMT%+d", hours) }
+        return String(format: "GMT%+d:%02d", hours, minutes)
+    }
+
     func convert() async {
         let trimmed = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
