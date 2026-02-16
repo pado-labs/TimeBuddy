@@ -11,3 +11,5 @@ This document records every significant action performed by Oz (the agent) on th
 <!-- LOG: entries will be appended below this line -->
 - [Auth] Switch GitHub CLI login to 'woohyeokk-choi' via web flow (HTTPS git protocol; scopes: repo, workflow).
 - [Auth] Configure git credential helper via `gh auth setup-git` for HTTPS pushes.
+- [Repo] Push 'main' branch to origin (pado-labs/TimeBuddy).
+- [CI] Trigger GitHub Pages deploy workflow via push (deploy-web.yml).
