@@ -7,7 +7,17 @@ const GITHUB_RELEASE_URL = 'https://github.com/pado-labs/TimeBuddy/releases/late
 <Layout title="TimeBuddy — AI time zone converter for macOS">
   <main class="flex-1 flex items-center justify-center">
     <div class="w-full">
-      <div class="w-full max-w-2xl mx-auto px-6 sm:px-8 py-12">
+<div class="w-full max-w-2xl mx-auto px-6 sm:px-8 py-12">
+
+        <!-- Optional screenshot demo (auto-hides if not present) -->
+        <img
+          id="screenshot-demo"
+          src="/TimeBuddy/demo.png"
+          alt="TimeBuddy demo"
+          class="rounded-xl shadow-2xl ring-1 ring-black/5 border border-white/20 mb-10"
+          style="display:none"
+          onload="this.style.display='block'; const m=document.getElementById('mock-demo'); if(m) m.style.display='none'"
+        />
 
         <!-- Headline -->
         <div class="text-center mb-8">
@@ -19,8 +29,8 @@ const GITHUB_RELEASE_URL = 'https://github.com/pado-labs/TimeBuddy/releases/late
           </p>
         </div>
 
-        <!-- Mock macOS App Window -->
-        <div class="rounded-xl bg-white/80 backdrop-blur-xl shadow-2xl border border-white/20 ring-1 ring-black/5 overflow-hidden flex flex-col w-full text-left mb-10">
+<!-- Mock macOS App Window -->
+        <div id="mock-demo" class="rounded-xl bg-white/80 backdrop-blur-xl shadow-2xl border border-white/20 ring-1 ring-black/5 overflow-hidden flex flex-col w-full text-left mb-10">
 
           <!-- Window Chrome / Title Bar -->
           <div class="h-12 bg-gradient-to-b from-[#f6f6f6] to-[#e8e8e8] border-b border-[#d1d1d1] flex items-center justify-between px-4 shadow-[0_1px_0_rgba(255,255,255,0.5)_inset]">
@@ -39,10 +49,10 @@ const GITHUB_RELEASE_URL = 'https://github.com/pado-labs/TimeBuddy/releases/late
             <div class="flex items-center justify-between px-4 py-3 border-b border-[#e5e5e5]">
               <div class="flex-1">
                 <div class="flex items-center gap-2 bg-neutral-100 rounded-md px-3 py-2 border border-neutral-200">
-                  <span class="text-[13px] text-neutral-800">February 17th, 3:00 PM</span>
+<span class="text-[13px] text-neutral-800">next Tue 2–3pm in London</span>
                 </div>
               </div>
-              <div class="text-[12px] text-neutral-700 bg-neutral-100 px-2 py-1 rounded-md border border-neutral-200">EST ▾</div>
+<div class="text-[12px] text-neutral-700 bg-neutral-100 px-2 py-1 rounded-md border border-neutral-200">PST ▾</div>
             </div>
 
             <!-- Results (app-like) -->
