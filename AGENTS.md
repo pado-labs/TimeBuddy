@@ -24,3 +24,5 @@ This document records every significant action performed by Oz (the agent) on th
 - [App] Add "Launch at login" setting (writes LaunchAgent in ~/Library/LaunchAgents) and toggle in Settings.
 - [Web] Footer: append pado-labs icon (public/pado-icon.svg).
 - [Run] Local build (Debug) and launch via xcodebuild/open for verification.
+- [Release] Update workflow to also package `.pkg` installer (pkgbuild) and upload alongside zip.
+- [Docs] README: add website URL and install notes (PKG/ZIP).

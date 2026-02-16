@@ -4,7 +4,12 @@ AI-powered time zone converter for macOS. Type any time in natural language — 
 
 ## Download
 
+Website: https://pado-labs.github.io/TimeBuddy/
+
 Download the latest release from [GitHub Releases](https://github.com/pado-labs/TimeBuddy/releases/latest).
+
+- PKG installer: download the `.pkg` and double‑click to install (if Gatekeeper warns, right‑click → Open).
+- ZIP: download, unzip, and drag `TimeBuddy.app` to Applications.
 
 **Requirements:** macOS 14.0 (Sonoma) or later
 

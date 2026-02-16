@@ -42,7 +42,7 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             build
 
-      - name: Package app
+      - name: Package app (zip)
         working-directory: apps/macos
         run: |
           APP_PATH="build/Build/Products/Release/TimeBuddy.app"
@@ -52,6 +52,14 @@ jobs:
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
+      - name: Package installer (.pkg)
+        working-directory: apps/macos
+        run: |
+          APP_PATH="build/Build/Products/Release/TimeBuddy.app"
+          PKG_NAME="TimeBuddy-${VERSION}.pkg"
+          pkgbuild --install-location /Applications --component "$APP_PATH" "$PKG_NAME"
+          echo "PKG_NAME=$PKG_NAME" >> $GITHUB_ENV
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -59,11 +67,14 @@ jobs:
           body: |
             ## TimeBuddy v${{ env.VERSION }}
 
-            ### Download
-            Download `${{ env.ZIP_NAME }}`, unzip, and drag **TimeBuddy.app** to your Applications folder.
+            ### Downloads
+            - ZIP: `${{ env.ZIP_NAME }}` — unzip and drag **TimeBuddy.app** to Applications
+            - PKG: `${{ env.PKG_NAME }}` — double‑click installer (may require right‑click → Open on first run)
 
             ### Requirements
             - macOS 14.0 (Sonoma) or later
-          files: apps/macos/${{ env.ZIP_NAME }}
+          files: |
+            apps/macos/${{ env.ZIP_NAME }}
+            apps/macos/${{ env.PKG_NAME }}
           draft: false
           prerelease: false
