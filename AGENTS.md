@@ -18,3 +18,4 @@ This document records every significant action performed by Oz (the agent) on th
 - [Pages] Manually dispatched Deploy Website workflow on main.
 - [Web] Remove features row (emoji bullets) and redesign demo to match app UI (toolbar + rows + copy icons).
 - [Web] Update hero input text to "next Tue 2–3pm in London" and add optional screenshot hook (`public/demo.png`).
+- [Icons] Add script to generate minimalist clock app icon and update AppIcon.appiconset with filenames.
