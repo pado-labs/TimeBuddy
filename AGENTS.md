@@ -14,3 +14,4 @@ This document records every significant action performed by Oz (the agent) on th
 - [Repo] Push 'main' branch to origin (pado-labs/TimeBuddy).
 - [CI] Trigger GitHub Pages deploy workflow via push (deploy-web.yml).
 - [Release] Create and push tag v1.0.0 to trigger release workflow.
+- [Pages] Enable GitHub Pages with build_type=workflow and HTTPS enforced.
